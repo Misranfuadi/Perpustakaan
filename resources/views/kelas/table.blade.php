@@ -23,7 +23,7 @@
                                 <td>{{ $kelas->nama_kelas }}</td>
                                 <td>{{ date('d-M-Y',strtotime($kelas->created_at))}}</td>
                                 <td >
-                                    <a class="btn btn-warning btn-sm" title="Edit" href="#modalForm" data-toggle="modal"
+                                    <a class="btn btn-info btn-sm" title="Edit" href="#modalForm" data-toggle="modal"
                                         data-href="{{ url('kelas/update/'.$kelas->id) }}"> Edit</a>
                                     <input type="hidden" name="_method" value="delete"/>
                                     <a class="btn btn-danger btn-sm" title="Delete" data-toggle="modal"
@@ -38,14 +38,3 @@
         </div>
     </div>
 </div>
-@push('script')
-<script>
-    $(function () {
-        $('#table').DataTable({
-            "ordering": false,
-            "info": true,
-            "autoWidth": false,
-        });
-    });
-</script>
-@endpush

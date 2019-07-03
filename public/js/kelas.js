@@ -38,6 +38,12 @@ function ajaxLoad(filename, content) {
         contentType: false,
         success: function (data) {
             $("#" + content).html(data);
+            $('#table').DataTable({
+                "ordering": false,
+                "info": true,
+                "autoWidth": false,
+                "destroy": true,
+            });
             $('.loading').hide();
         },
         error: function (xhr) {
@@ -59,6 +65,12 @@ function ajaxDelete(filename, token, content) {
         success: function (data) {
             $('#modalDelete').modal('hide');
             $("#" + content).html(data);
+            $('#table').DataTable({
+                "ordering": false,
+                "info": true,
+                "autoWidth": false,
+                "destroy": true,
+            });
             $('.loading').hide();
         },
         error: function (xhr) {
@@ -77,4 +89,12 @@ $('#modalDelete').on('show.bs.modal', function (event) {
 });
 $('#modalForm').on('shown.bs.modal', function () {
     $('#focus').trigger('focus')
+});
+
+$(function () {
+    $('#table').DataTable({
+        "ordering": false,
+        "info": true,
+        "autoWidth": false,
+    });
 });

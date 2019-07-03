@@ -10,10 +10,8 @@ class KelasController extends Controller
 {
     public function index(Request $request)
     {
-        $kelas_list = Kelas::orderBy('nama_kelas', 'asc')->paginate(5);
+        $kelas_list = Kelas::orderBy('nama_kelas', 'asc')->get();
         $i = 1;
-
-
         if ($request->ajax())
             return view('kelas.table', compact('kelas_list', 'i'));
         else
