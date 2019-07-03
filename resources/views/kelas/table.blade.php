@@ -38,7 +38,7 @@
         </div>
     </div>
 </div>
-@section('script')
+@push('script')
 <script>
     $(function () {
         $('#table').DataTable({
@@ -48,4 +48,4 @@
         });
     });
 </script>
-@endsection
+@endpush
