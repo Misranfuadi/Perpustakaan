@@ -1,8 +1,8 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-        Anything you want
+        <strong>Version</strong> Perpustakaan.0.1
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2019 <a href="https://adminlte.io" target="blank">ToSran</a>.</strong> All rights reserved.
 </footer>

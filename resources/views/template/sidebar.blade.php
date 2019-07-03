@@ -14,37 +14,37 @@
             <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                 <li class="nav-item">
                     <a href="{{ url('/') }}" class="nav-link">
-                        <i class="nav-icon fas fa-home"></i>
+                        <i class="nav-icon fa fa-home"></i>
                         <p>Home</p>
                     </a>
                 </li>
                 <li class="nav-item has-treeview ">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-database"></i>
-                        <p>Master<i class="right fas fa-arrow-circle-left"></i></p>
+                        <i class="nav-icon fa fa-database"></i>
+                        <p>Master<i class="right fa fa-arrow-circle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                            <a href="{{ url('kelas') }}" class="nav-link">
+                                <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Kelas</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Siswa</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Buku</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-circle-o nav-icon"></i>
                                 <p>User</p>
                             </a>
                         </li>
@@ -52,19 +52,19 @@
                 </li>
                 <li class="nav-item has-treeview ">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-briefcase"></i>
-                        <p>Transaksi<i class="right fas fa-arrow-circle-left"></i></p>
+                        <i class="nav-icon fa fa-briefcase"></i>
+                        <p>Transaksi<i class="right fa fa-arrow-circle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Peminjaman</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Pengembalian</p>
                             </a>
                         </li>
@@ -72,30 +72,30 @@
                 </li>
                 <li class="nav-item has-treeview ">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-file"></i>
-                        <p>Laporan<i class="right fas fa-arrow-circle-left"></i></p>
+                        <i class="nav-icon fa fa-file"></i>
+                        <p>Laporan<i class="right fa fa-arrow-circle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Buku</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Denda</p>
                             </a>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Peminjaman</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Pengembalian</p>
                             </a>
                         </li>
@@ -103,7 +103,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <i class="nav-icon fa fa-calendar"></i>
                         <p>Kalender</p>
                     </a>
                 </li>

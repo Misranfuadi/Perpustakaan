@@ -2,7 +2,7 @@
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-th-list"></i></a>
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-th-list"></i></a>
         </li>
     </ul>
 
@@ -12,7 +12,7 @@
             <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
             <button class="btn btn-navbar" type="submit">
-                <i class="fas fa-search"></i>
+                <i class="fa fa-search"></i>
             </button>
         </div>
         </div>
@@ -47,7 +47,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-                <i class="fas fa-cog fa-spin"></i>
+                <i class="fa fa-cog fa-spin"></i>
             </a>
         </li>
     </ul>
