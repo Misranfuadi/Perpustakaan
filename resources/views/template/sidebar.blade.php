@@ -1,7 +1,7 @@
 {{-- liftside --}}
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ url('/') }}" class="brand-link">
+    <a href="{{ url('home') }}" class="brand-link">
         <img src="lte/dist/img/TosranLogo.png" alt="ToSranLogo" class="brand-image img-circle elevation-3"
             style="opacity: 1">
         <img class="brand-text elevation-3" src="lte/dist/img/TosranText.png" >
@@ -12,24 +12,46 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+                @if (!empty($halaman)&& $halaman == 'home')
                 <li class="nav-item">
-                    <a href="{{ url('/') }}" class="nav-link">
+                    <a href="{{ url('home') }}" class="nav-link active">
+                        <i class="nav-icon fa fa-home"></i>
+                        <p>Home</p>
+                    </a>
+                @else
+                <li class="nav-item">
+                    <a href="{{ url('home') }}" class="nav-link">
                         <i class="nav-icon fa fa-home"></i>
                         <p>Home</p>
                     </a>
                 </li>
+                @endif
+                @if (!empty($menu)&& $menu == 'master')
+                <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link active">
+                @else
                 <li class="nav-item has-treeview ">
-                    <a href="#" class="nav-link">
+                        <a href="#" class="nav-link">
+                @endif
                         <i class="nav-icon fa fa-database"></i>
                         <p>Master<i class="right fa fa-arrow-circle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
+                        @if (!empty($halaman)&& $halaman == 'kelas')
+                        <li class="nav-item">
+                            <a href="{{ url('kelas') }}" class="nav-link active">
+                                <i class="fa fa-circle-o nav-icon"></i>
+                                <p>Kelas</p>
+                            </a>
+                        </li>
+                        @else
                         <li class="nav-item">
                             <a href="{{ url('kelas') }}" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>
                                 <p>Kelas</p>
                             </a>
                         </li>
+                        @endif
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>

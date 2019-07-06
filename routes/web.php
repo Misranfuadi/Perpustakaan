@@ -22,7 +22,7 @@ DELETE	    /resource/{resource}	    destroy	    resource.destroy
 */
 
 Route::group(['middleware' => 'web'], function () {
-    Route::get('/', 'HomeController@index');
+    Route::get('home', 'HomeController@index');
 
     //Route Kelas
     Route::get('kelas', 'KelasController@index');
