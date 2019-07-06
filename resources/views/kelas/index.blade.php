@@ -51,10 +51,10 @@
     <div class="content" id="content">
         @include('kelas.table')
     </div>
-    <div class="loading">
-        <i class="fa fa-fw fa-refresh fa-spin"></i><br/>
-        <span>Loading</span>
-    </div>
+        <div class="bg-loading">
+            <div class="loading">
+            </div>
+        </div>
 </div>
 @endsection
 @push('script')

@@ -31,7 +31,7 @@ $(document).on('submit', 'form#frm', function (event) {
 
 function ajaxLoad(filename, content) {
     content = typeof content !== 'undefined' ? content : 'content';
-    $('.loading').show();
+    $('.bg-loading').show();
     $.ajax({
         type: "GET",
         url: filename,
@@ -44,7 +44,7 @@ function ajaxLoad(filename, content) {
                 "autoWidth": false,
                 "destroy": true,
             });
-            $('.loading').hide();
+            $('.bg-loading').hide();
         },
         error: function (xhr) {
             alert(xhr.responseText);
@@ -54,7 +54,7 @@ function ajaxLoad(filename, content) {
 
 function ajaxDelete(filename, token, content) {
     content = typeof content !== 'undefined' ? content : 'content';
-    $('.loading').show();
+    $('.bg-loading').show();
     $.ajax({
         type: 'POST',
         data: {
@@ -71,7 +71,7 @@ function ajaxDelete(filename, token, content) {
                 "autoWidth": false,
                 "destroy": true,
             });
-            $('.loading').hide();
+            $('.bg-loading').hide();
         },
         error: function (xhr) {
             alert(xhr.responseText);
