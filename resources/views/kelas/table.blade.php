@@ -21,7 +21,7 @@
                             <tr>
                                 <th style="text-align: center">{{ $i++ }}</th>
                                 <td>{{ $kelas->nama_kelas }}</td>
-                                <td>{{ date('d-M-Y',strtotime($kelas->created_at))}}</td>
+                                <td>{{ date('d/M/Y',strtotime($kelas->created_at))}}</td>
                                 <td >
                                     <a class="btn btn-info btn-sm" title="Edit" href="#modalForm" data-toggle="modal"
                                         data-href="{{ url('kelas/update/'.$kelas->id) }}"> Edit</a>

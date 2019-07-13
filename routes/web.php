@@ -29,4 +29,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::match(['get', 'post'], 'kelas/create', 'KelasController@create');
     Route::match(['get', 'put'], 'kelas/update/{id}', 'KelasController@update');
     Route::delete('kelas/delete/{id}', 'KelasController@delete');
+
+    //Route Siswa
+    Route::resource('siswa', 'SiswaController');
 });

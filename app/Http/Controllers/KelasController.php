@@ -45,7 +45,7 @@ class KelasController extends Controller
     public function delete($id)
     {
         Kelas::destroy($id);
-        return redirect('/kelas');
+        return redirect('kelas');
     }
 
     public function update(Request $request, $id)

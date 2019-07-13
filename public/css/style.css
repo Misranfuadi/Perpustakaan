@@ -47,9 +47,3 @@
         transform: rotate(360deg);
     }
 }
-
-@keyframes a2 {
-    to {
-        transform: rotate(-360deg);
-    }
-}

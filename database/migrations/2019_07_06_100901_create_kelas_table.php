@@ -18,6 +18,12 @@ class CreateKelasTable extends Migration
             $table->string('nama_kelas');
             $table->timestamps();
         });
+
+        Schema::table('siswa', function (Blueprint $table) {
+            $table->foreign('id_kelas')->references('id')
+                ->on('kelas')->onDelete('cascade')
+                ->onUpdate('cascade');
+        });
     }
 
     /**

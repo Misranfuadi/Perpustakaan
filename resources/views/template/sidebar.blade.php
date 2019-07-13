@@ -2,9 +2,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('home') }}" class="brand-link">
-        <img src="lte/dist/img/TosranLogo.png" alt="ToSranLogo" class="brand-image img-circle elevation-3"
+        <img src="{{ asset('lte/dist/img/TosranLogo.png') }}" alt="ToSranLogo" class="brand-image img-circle elevation-3"
             style="opacity: 1">
-        <img class="brand-text elevation-3" src="lte/dist/img/TosranText.png" >
+        <img class="brand-text elevation-3" src="{{ asset('lte/dist/img/TosranText.png') }}" >
     </a>
     <!-- Sidebar -->
     <div class="sidebar">
@@ -38,26 +38,35 @@
                     </a>
                     <ul class="nav nav-treeview">
                         @if (!empty($halaman)&& $halaman == 'kelas')
-                        <li class="nav-item">
-                            <a href="{{ url('kelas') }}" class="nav-link active">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Kelas</p>
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a href="{{ url('kelas') }}" class="nav-link active">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>Kelas</p>
+                                </a>
+                            </li>
                         @else
-                        <li class="nav-item">
-                            <a href="{{ url('kelas') }}" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Kelas</p>
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a href="{{ url('kelas') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>Kelas</p>
+                                </a>
+                            </li>
                         @endif
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Siswa</p>
-                            </a>
-                        </li>
+                        @if (!empty($halaman)&& $halaman == 'siswa')
+                            <li class="nav-item">
+                                <a href="{{ url('siswa') }}" class="nav-link active">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>Siswa</p>
+                                </a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a href="{{ url('siswa') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>Siswa</p>
+                                </a>
+                            </li>
+                        @endif
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>

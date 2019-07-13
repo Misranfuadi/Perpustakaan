@@ -14,6 +14,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="shortcut icon" href="{{ asset('lte/dist/img/TosranLogo.png') }}">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('lte/plugins/fontawesome/css/font-awesome.min.css') }}">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="{{ asset('lte/plugins/sweetalert2/sweetalert2.min.css') }}">
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('lte/plugins/datatables/dataTables.bootstrap4.css') }}">
     <!-- Theme style -->
@@ -45,6 +47,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
 {{-- Fastclick --}}
+<script src="{{ asset('lte/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+{{-- SweetAlert2 --}}
 <script src="{{ asset('lte/plugins/fastclick/fastclick.js') }}"></script>
 <!-- DataTables -->
 <script src="{{ asset('lte/plugins/datatables/jquery.dataTables.js') }}"></script>

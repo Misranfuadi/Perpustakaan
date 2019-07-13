@@ -34,6 +34,10 @@ class AppServiceProvider extends ServiceProvider
             $halaman = 'kelas';
             $menu = 'master';
         }
+        if (Request::segment(1) == 'siswa') {
+            $halaman = 'siswa';
+            $menu = 'master';
+        }
         View::share('halaman', $halaman);
         View::share('menu', $menu);
     }

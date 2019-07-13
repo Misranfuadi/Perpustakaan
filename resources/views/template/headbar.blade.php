@@ -23,13 +23,13 @@
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <img src="lte/dist/img/avatar.png" class="user-image img-circle elevation-2" alt="User Image">
+                <img src="{{ asset('lte/dist/img/avatar.png') }}" class="user-image img-circle elevation-2" alt="User Image">
                 <span class="d-none d-md-inline">Admin</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <!-- User image -->
                 <li class="user-header bg-primary">
-                    <img src="lte/dist/img/avatar.png" class="img-circle elevation-2" alt="User Image">
+                    <img src="{{ asset('lte/dist/img/avatar.png') }}" class="img-circle elevation-2" alt="User Image">
                     <p>
                         Admin
                         <small>Member since Nov. 2012</small>
