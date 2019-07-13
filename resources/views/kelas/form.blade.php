@@ -3,7 +3,7 @@
 @else
     {!! Form::open(['id'=>'frm']) !!}
 @endif
-<div class="modal-header bg-secon">
+<div class="modal-header bg-primary">
     <h5 class="modal-title">{{isset($kelas)?'Edit':'New'}} Kelas</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>

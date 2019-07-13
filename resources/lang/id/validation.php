@@ -144,6 +144,12 @@ return [
     */
 
     'attributes' => [
+        //kelas
         'nama_kelas' => 'Kelas',
+        //siswa
+        'nis' => 'NIS',
+        'nama_siswa' => 'Nama',
+        'jenis_kelamin' => 'Kelamin',
+        'id_kelas' => 'Kelas',
     ],
 ];

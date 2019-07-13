@@ -18,7 +18,7 @@ class KelasController extends Controller
             return view('kelas.index', compact('kelas_list', 'i'));
     }
 
-    public function create(Request $request)
+    public function create(Kelas $kelas, Request $request)
     {
         if ($request->isMethod('get'))
             return view('kelas.form');
@@ -32,7 +32,6 @@ class KelasController extends Controller
                     'fail' => true,
                     'errors' => $validator->errors()
                 ]);
-            $kelas = new Kelas();
             $kelas->nama_kelas = $request->nama_kelas;
             $kelas->save();
             return response()->json([
