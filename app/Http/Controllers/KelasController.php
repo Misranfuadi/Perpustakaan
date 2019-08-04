@@ -11,17 +11,16 @@ class KelasController extends Controller
     public function index(Request $request)
     {
         $kelas_list = Kelas::orderBy('nama_kelas', 'asc')->get();
-        $i = 1;
         if ($request->ajax())
-            return view('kelas.table', compact('kelas_list', 'i'));
+            return view('master/kelas/table', compact('kelas_list'));
         else
-            return view('kelas.index', compact('kelas_list', 'i'));
+            return view('master/kelas/index', compact('kelas_list'));
     }
 
     public function create(Kelas $kelas, Request $request)
     {
         if ($request->isMethod('get'))
-            return view('kelas.form');
+            return view('master/kelas/form');
         else {
             $rules = [
                 'nama_kelas' => 'required',
@@ -36,7 +35,7 @@ class KelasController extends Controller
             $kelas->save();
             return response()->json([
                 'fail' => false,
-                'redirect_url' => url('kelas')
+                'redirect_url' => url('master/kelas')
             ]);
         }
     }
@@ -44,13 +43,13 @@ class KelasController extends Controller
     public function delete($id)
     {
         Kelas::destroy($id);
-        return redirect('kelas');
+        return redirect('master/kelas');
     }
 
     public function update(Request $request, $id)
     {
         if ($request->isMethod('get'))
-            return view('kelas.form', ['kelas' => Kelas::find($id)]);
+            return view('master/kelas/form', ['kelas' => Kelas::find($id)]);
         else {
             $rules = [
                 'nama_kelas' => 'required',
@@ -66,7 +65,7 @@ class KelasController extends Controller
             $kelas->save();
             return response()->json([
                 'fail' => false,
-                'redirect_url' => url('kelas')
+                'redirect_url' => url('master/kelas')
             ]);
         }
     }

@@ -9,7 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ config('app.name') }}</title>
-
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     {{-- Favicon --}}
     <link rel="shortcut icon" href="{{ asset('lte/dist/img/TosranLogo.png') }}">
     <!-- Font Awesome Icons -->

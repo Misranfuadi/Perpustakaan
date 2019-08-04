@@ -39,14 +39,14 @@
                     <ul class="nav nav-treeview">
                         @if (!empty($halaman)&& $halaman == 'kelas')
                             <li class="nav-item">
-                                <a href="{{ url('kelas') }}" class="nav-link active">
+                                <a href="{{ url('master/kelas') }}" class="nav-link active">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>Kelas</p>
                                 </a>
                             </li>
                         @else
                             <li class="nav-item">
-                                <a href="{{ url('kelas') }}" class="nav-link">
+                                <a href="{{ url('master/kelas') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>Kelas</p>
                                 </a>
@@ -54,25 +54,34 @@
                         @endif
                         @if (!empty($halaman)&& $halaman == 'siswa')
                             <li class="nav-item">
-                                <a href="{{ url('siswa') }}" class="nav-link active">
+                                <a href="{{ url('master/siswa') }}" class="nav-link active">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>Siswa</p>
                                 </a>
                             </li>
                         @else
                             <li class="nav-item">
-                                <a href="{{ url('siswa') }}" class="nav-link">
+                                <a href="{{ url('master/siswa') }}" class="nav-link">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>Siswa</p>
                                 </a>
                             </li>
                         @endif
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fa fa-circle-o nav-icon"></i>
-                                <p>Buku</p>
-                            </a>
-                        </li>
+                        @if (!empty($halaman)&& $halaman == 'buku')
+                            <li class="nav-item">
+                                <a href="{{ url('master/buku') }}" class="nav-link active">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>Buku</p>
+                                </a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a href="{{ url('master/buku') }}" class="nav-link">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>Buku</p>
+                                </a>
+                            </li>
+                        @endif
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="fa fa-circle-o nav-icon"></i>

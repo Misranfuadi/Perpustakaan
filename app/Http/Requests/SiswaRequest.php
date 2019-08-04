@@ -34,6 +34,7 @@ class SiswaRequest extends FormRequest
             'nama_siswa'    => 'required|string|max:100',
             'jenis_kelamin' => 'required|in:p,w',
             'id_kelas'      => 'required',
+
         ];
     }
 }

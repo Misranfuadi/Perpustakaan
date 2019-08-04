@@ -25,11 +25,17 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('home', 'HomeController@index');
 
     //Route Kelas
-    Route::get('kelas', 'KelasController@index');
-    Route::match(['get', 'post'], 'kelas/create', 'KelasController@create');
-    Route::match(['get', 'put'], 'kelas/update/{id}', 'KelasController@update');
-    Route::delete('kelas/delete/{id}', 'KelasController@delete');
+    Route::get('master/kelas', 'KelasController@index');
+    Route::match(['get', 'post'], 'master/kelas/create', 'KelasController@create');
+    Route::match(['get', 'put'], 'master/kelas/update/{id}', 'KelasController@update');
+    Route::delete('master/kelas/delete/{id}', 'KelasController@delete');
 
     //Route Siswa
-    Route::resource('siswa', 'SiswaController');
+    Route::resource('master/siswa', 'SiswaController');
+
+    //Route Buku
+    Route::resource('master/buku', 'BukuController');
+    Route::get('master/buku', 'BukuController@index');
+    Route::post('master/buku/update', 'BukuController@update');
+    Route::get('master/buku/destroy/{id}', 'BukuController@destroy');
 });

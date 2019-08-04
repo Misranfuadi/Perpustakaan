@@ -3,8 +3,8 @@
 @else
     {!! Form::open(['id'=>'frm']) !!}
 @endif
-<div class="modal-header bg-primary">
-    <h5 class="modal-title">{{isset($kelas)?'Edit':'New'}} Kelas</h5>
+<div class="modal-header bg-dark">
+    <h5 class="modal-title">{{isset($kelas)?'Edit Kelas':'Kelas Baru'}}</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -17,7 +17,7 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-danger" data-dismiss="modal"> Close</button>
-    {!! Form::submit("Save",["class"=>"btn btn-primary"])!!}
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+    {!! Form::submit("Simpan",["class"=>"btn btn-primary"])!!}
 </div>
 {!! Form::close() !!}

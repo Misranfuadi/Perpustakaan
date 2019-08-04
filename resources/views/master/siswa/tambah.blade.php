@@ -13,7 +13,7 @@
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
                         <li class="breadcrumb-item">Master</li>
-                        <li class="breadcrumb-item"><a href="{{ url('siswa') }}">Siswa</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('master/siswa') }}">Siswa</a></li>
                         <li class="breadcrumb-item active">Tambah</li>
                     </ol>
                 </div>
@@ -30,12 +30,12 @@
                             <h5 class="m-0">Input Siswa</h5>
                         </div>
                         <div class="card-body">
-                            {!! Form::open (['url'=> 'siswa','class'=>'form-horizontal']) !!}
-                            @include('siswa.form')
+                            {!! Form::open (['url'=> 'master/siswa','class'=>'form-horizontal']) !!}
+                            @include('master/siswa/form')
                         </div>
                         <div class="card-footer">
                             {!! Form::submit('Simpan',['class'=>'btn btn-primary']) !!}
-                            <a href="{{ url('siswa') }}" class="btn btn-danger float-right">Cancel</a>
+                            <a href="{{ url('master/siswa') }}" class="btn btn-danger float-right">Cancel</a>
                             {!! Form::close() !!}
                         </div>
                     </div>

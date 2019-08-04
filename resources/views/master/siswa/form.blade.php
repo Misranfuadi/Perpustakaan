@@ -19,11 +19,11 @@
     {!! Form::label("jenis_kelamin","Kelamin") !!}
     <div class="form-check">
         {!! Form::radio ('jenis_kelamin','p',null,['id'=>'jenis_kelamin1','class'=>'form-check-input'.($errors->has('jenis_kelamin')?' is-invalid':'')]) !!}
-        <label class="form-check-label" for="jenis_kelamin1">Laki-laki</label>
+        <label class="form-check-label" for="jenis_kelamin1">Pria</label>
     </div>
     <div class="form-check">
         {!! Form::radio ('jenis_kelamin','w',null,['id'=>'jenis_kelamin2','class'=>'form-check-input'.($errors->has('jenis_kelamin')?' is-invalid':'')]) !!}
-        <label class="form-check-label" for="jenis_kelamin2">Perempuan</label>
+        <label class="form-check-label" for="jenis_kelamin2">Wanita</label>
         @error('jenis_kelamin')
             <span class="invalid-feedback">{{ $message }}</span>
         @enderror

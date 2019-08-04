@@ -24,7 +24,7 @@ class FormSiswaServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('siswa.form', function ($view) {
+        view()->composer('master.siswa.form', function ($view) {
             $view->with('kelas_list', Kelas::pluck('nama_kelas', 'id'));
         });
     }

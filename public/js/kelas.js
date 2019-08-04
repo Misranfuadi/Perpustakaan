@@ -62,6 +62,9 @@ function ajaxDelete(filename, token, content) {
             _token: token
         },
         url: filename,
+        beforeSend: function () {
+            $('#btn_delete').text('Menghapus...');
+        },
         success: function (data) {
             $('#modalDelete').modal('hide');
             $("#" + content).html(data);

@@ -1,4 +1,4 @@
-@extends('template.layout')
+@extends('template/layout')
 
 @section('content')
 <div class="content-wrapper">
@@ -13,7 +13,7 @@
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
                         <li class="breadcrumb-item">Master</li>
-                        <li class="breadcrumb-item"><a href="{{ url('siswa') }}">Siswa</a></li>
+                        <li class="breadcrumb-item"><a href="{{ url('master/siswa') }}">Siswa</a></li>
                         <li class="breadcrumb-item active">Edit</li>
                     </ol>
                 </div>
@@ -29,15 +29,15 @@
                         <div class="card-header bg-dark">
                             <h5 class="m-0">Update Siswa</h5>
                         </div>
+                        {!! Form::model ($siswa,['class'=>'form-horizontal','method'=>'PATCH', 'action'=>['SiswaController@update', $siswa->id]]) !!}
                         <div class="card-body">
-                            {!! Form::model ($siswa,['class'=>'form-horizontal','method'=>'PATCH', 'action'=>['SiswaController@update', $siswa->id]]) !!}
-                            @include('siswa.form')
+                            @include('master/siswa/form')
                         </div>
                         <div class="card-footer">
                             {!! Form::submit('Update',['class'=>'btn btn-primary']) !!}
-                            <a href="{{ url('siswa') }}" class="btn btn-danger float-right">Cancel</a>
-                            {!! Form::close() !!}
+                            <a href="{{ url('master/siswa') }}" class="btn btn-danger float-right">Cancel</a>
                         </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
