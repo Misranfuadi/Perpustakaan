@@ -31,7 +31,7 @@ class SiswaRequest extends FormRequest
 
         return [
             'nis' => $nis_rules,
-            'nama_siswa'    => 'required|string|max:100',
+            'nama_siswa'    => 'required|string|max:50',
             'jenis_kelamin' => 'required|in:p,w',
             'id_kelas'      => 'required',
 

@@ -3,9 +3,23 @@ $(document).ready(function () {
         serverSide: true,
         processing: true,
         ajax: {},
-        columns: [{
+        fnRowCallback: function (row) {
+            $('td', row).eq(0).css('font-weight', 'bold');
+            $('td', row).addClass('word-warp');
+            $('td', row).eq(1).css('width', '100px');
+            $('td', row).eq(5).addClass('btn-warp');
+        },
+        columns: [
+            {
+                data: null,
+                orderable: false,
+                render: function (data, type, row, meta) {
+                    return meta.row + meta.settings._iDisplayStart + 1;
+                }
+            },
+            {
                 data: 'isbn',
-                name: 'isbn'
+                name: 'isbn',
             },
             {
                 data: 'judul',
@@ -17,27 +31,51 @@ $(document).ready(function () {
             },
             {
                 data: 'penerbit',
-                name: 'penerbit'
+                name: 'penerbit',
             },
             {
                 data: 'aksi',
                 name: 'aksi',
-                orderable: false
-            },
-        ]
+                orderable: false,
+                searchable: false
+            }]
     });
 
     $('#create_record').click(function () {
-        $('#form_result').html('');
         $('.modal-title').text("Buku Baru");
+        $('#isbn').inputmask('999-999-99999-9-9')
         $('#buku_form')[0].reset();
         $('#action_button').val("Add");
         $('#action').val("Add");
         $('#formModal').modal('show');
+        $('.is-invalid').removeClass('is-invalid');
+    });
+
+    $(document).on('click', '.edit', function () {
+        var id = $(this).attr('id');
+        $.ajax({
+            url: "/master/buku/" + id + "/edit",
+            dataType: "json",
+            success: function (html) {
+                $('#isbn').val(html.data.isbn).inputmask('999-999-99999-9-9');
+                $('#judul').val(html.data.judul);
+                $('#penulis').val(html.data.penulis);
+                $('#penerbit').val(html.data.penerbit);
+                // $('#store_image').html("<img src={{ URL::to('/') }}/images/" + html.data.image + " width='70' class='img-thumbnail' />");
+                // $('#store_image').append("<input type='hidden' name='hidden_image' value='" + html.data.image + "' />");
+                $('#id').val(html.data.id);
+                $('.is-invalid').removeClass('is-invalid');
+                $('.modal-title').text("Edit Buku ");
+                $('#action_button').val("Edit");
+                $('#action').val("Edit");
+                $('#formModal').modal('show');
+            }
+        })
     });
 
     $('#buku_form').on('submit', function (event) {
         event.preventDefault();
+        $('#isbn').inputmask('');
         if ($('#action').val() == 'Add') {
             $.ajax({
                 method: "POST",
@@ -47,24 +85,21 @@ $(document).ready(function () {
                 processData: false,
                 dataType: "json",
                 success: function (data) {
-                    var html = '';
                     if (data.errors) {
-                        html = '<div class="alert alert-danger">';
-                        for (var count = 0; count < data.errors.length; count++) {
-                            html += '<p>' + data.errors[count] + '</p>';
+                        for (control in data.errors) {
+                            $('input[name=' + control + ']').addClass('is-invalid');
+                            $('#error-' + control).html(data.errors[control]);
                         }
-                        html += '</div>';
                     }
                     if (data.success) {
-                        html = '<div class="alert alert-success">' + data.success + '</div>';
                         $('#buku_form')[0].reset();
                         $('#buku_table').DataTable().ajax.reload();
                     }
-                    $('#form_result').html(html);
                 }
             })
         }
         if ($('#action').val() == "Edit") {
+            $('#isbn').inputmask('');
             $.ajax({
                 url: "/master/buku/update",
                 method: "POST",
@@ -74,53 +109,30 @@ $(document).ready(function () {
                 processData: false,
                 dataType: "json",
                 success: function (data) {
-                    var html = '';
-                    if (data.fail) {
-                        html = '<div class="alert alert-danger">';
-                        for (var count = 0; count < data.errors.length; count++) {
-                            html += '<p>' + data.errors[count] + '</p>';
+                    if (data.errors) {
+                        for (control in data.errors) {
+                            $('input[name=' + control + ']').addClass('is-invalid');
+                            $('#error-' + control).html(data.errors[control]);
                         }
-                        html += '</div>';
                     }
                     if (data.success) {
-                        html = '<div class="alert alert-success">' + data.success + '</div>';
-                        $('#buku_form')[0].reset();
-                        $('#store_image').html('');
-                        $('#buku_table').DataTable().ajax.reload();
+                        setTimeout(function () {
+                            $('#buku_form')[0].reset();
+                            $('#store_image').html('');
+                            $('#formModal').modal('hide');
+                            $('#buku_table').DataTable().ajax.reload();
+                        }, 1000);
                     }
-                    $('#form_result').html(html);
                 }
             });
         }
-    });
-
-    $(document).on('click', '.edit', function () {
-        var id = $(this).attr('id');
-        $('#form_result').html('');
-        $.ajax({
-            url: "/master/buku/" + id + "/edit",
-            dataType: "json",
-            success: function (html) {
-                $('#isbn').val(html.data.isbn);
-                $('#judul').val(html.data.judul);
-                $('#penulis').val(html.data.penulis);
-                $('#penerbit').val(html.data.penerbit);
-                // $('#store_image').html("<img src={{ URL::to('/') }}/images/" + html.data.image + " width='70' class='img-thumbnail' />");
-                // $('#store_image').append("<input type='hidden' name='hidden_image' value='" + html.data.image + "' />");
-                $('#id').val(html.data.id);
-                $('.modal-title').text("Edit Buku " + html.data.judul);
-                $('#action_button').val("Edit");
-                $('#action').val("Edit");
-                $('#formModal').modal('show');
-            }
-        })
     });
 
     var user_id;
     $(document).on('click', '.delete', function () {
         user_id = $(this).attr('id');
         $('#confirmModal').modal('show');
-        $('#ok_button').text('ok');
+        $('.modal-title').text('Konfirmasi');
     });
     $('#ok_button').click(function () {
         $.ajax({
@@ -132,6 +144,7 @@ $(document).ready(function () {
                 setTimeout(function () {
                     $('#confirmModal').modal('hide');
                     $('#buku_table').DataTable().ajax.reload();
+                    $('#ok_button').text('ok');
                 }, 1000);
             }
         })

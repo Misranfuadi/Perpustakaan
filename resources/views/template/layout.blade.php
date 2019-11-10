@@ -46,13 +46,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
-{{-- Fastclick --}}
+{{-- sweetalert2 --}}
 <script src="{{ asset('lte/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-{{-- SweetAlert2 --}}
+{{-- Fastclick --}}
 <script src="{{ asset('lte/plugins/fastclick/fastclick.js') }}"></script>
 <!-- DataTables -->
 <script src="{{ asset('lte/plugins/datatables/jquery.dataTables.js') }}"></script>
 <script src="{{ asset('lte/plugins/datatables/dataTables.bootstrap4.js') }}"></script>
+<!-- InputMask -->
+<script src="{{ asset('lte/plugins/inputmask/jquery.inputmask.bundle.js') }}"></script>
 {{-- JavaScript --}}
 @stack('script')
 </body>

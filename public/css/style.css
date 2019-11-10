@@ -1,3 +1,4 @@
+/* ----loading---- */
 .bg-loading {
     padding: 15px;
     position: fixed;
@@ -41,9 +42,20 @@
     transform: rotate(240deg);
 }
 
-
 @keyframes a1 {
     to {
         transform: rotate(360deg);
     }
+}
+
+/* ----table-warp---- */
+td.word-warp {
+    word-wrap: break-word;
+    max-width: 150px;
+}
+
+td.btn-warp {
+    word-wrap: break-word;
+    width: 110px;
+    justify-content: center;
 }

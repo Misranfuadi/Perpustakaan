@@ -16,29 +16,14 @@ class BukuController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            return datatables()->of(Buku::latest()->get())
+            return datatables()->of(Buku::orderBy('isbn', 'asc')->get())
                 ->addColumn('aksi', function ($data) {
-                    $button = '<button type="button" name="edit" id="' . $data->id . '" class="edit btn btn-info btn-sm">Edit</button>';
-                    $button .= '&nbsp;&nbsp;';
-                    $button .= '<button type="button" name="delete" id="' . $data->id . '" class="delete btn btn-danger btn-sm">Delete</button>';
-                    return $button;
-                })
-                ->rawColumns(['aksi'])
-                ->make(true);
+                    return '<button type="button" name="edit" id="' . $data->id . '" class="edit btn btn-info btn-sm mb-1 mr-1">Edit</button>' .
+                        '<button type="button" name="delete" id="' . $data->id . '" class="delete btn btn-danger btn-sm mb-1">Delete</button>';
+                })->rawColumns(['aksi'])->make(true);
         }
         return view('master/buku/index');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -48,7 +33,7 @@ class BukuController extends Controller
     public function store(Buku $buku, Request $request)
     {
         $rules = array(
-            'isbn'          =>  'required|numeric|unique:buku,isbn',
+            'isbn'          =>  'required|digits:13|unique:buku,isbn',
             'judul'         =>  'required',
             'penulis'       =>  'required',
             'penerbit'      =>  'required',
@@ -58,7 +43,7 @@ class BukuController extends Controller
         $error = Validator::make($request->all(), $rules);
 
         if ($error->fails()) {
-            return response()->json(['errors' => $error->errors()->all()]);
+            return response()->json(['errors' => $error->errors()]);
         }
 
         //$image = $request->file('foto');
@@ -67,15 +52,21 @@ class BukuController extends Controller
 
         //$image->move(public_path('foto_cover'), $new_name);
 
-        $form_data = array(
-            'isbn'            =>  $request->isbn,
-            'judul'           =>  $request->judul,
-            'penulis'         =>  $request->penulis,
-            'penerbit'        =>  $request->penerbit,
-            //'foto'            =>  $new_name
-        );
+        $buku->isbn = $request->isbn;
+        $buku->judul = $request->judul;
+        $buku->penulis = $request->penulis;
+        $buku->penerbit = $request->penerbit;
+        //$buku->foto = $new_name;
 
-        Buku::create($form_data);
+        // $form_data = array(
+        //     'isbn'            =>  $request->isbn,
+        //     'judul'           =>  $request->judul,
+        //     'penulis'         =>  $request->penulis,
+        //     'penerbit'        =>  $request->penerbit,
+        //     //'foto'            =>  $new_name
+        // );
+
+        $buku->save();
 
         return response()->json(['success' => 'Data Added successfully.']);
     }
@@ -100,8 +91,8 @@ class BukuController extends Controller
     public function edit($id)
     {
         if (request()->ajax()) {
-            $data = Buku::findOrFail($id);
-            return response()->json(['data' => $data]);
+            $buku = Buku::findOrFail($id);
+            return response()->json(['data' => $buku]);
         }
     }
 
@@ -119,7 +110,7 @@ class BukuController extends Controller
         $image = $request->file('foto');
         if ($image != '') {
             $rules = array(
-                'isbn'         =>  'required|numeric|unique:buku,isbn,' . $request->input('id'),
+                'isbn'         =>  'required|digits:13|unique:buku,isbn,' . $request->input('id'),
                 'judul'        =>  'required',
                 'penulis'      =>  'required',
                 'penerbit'     =>  'required',
@@ -127,14 +118,14 @@ class BukuController extends Controller
             );
             $error = Validator::make($request->all(), $rules);
             if ($error->fails()) {
-                return response()->json(['errors' => $error->errors()->all()]);
+                return response()->json(['errors' => $error->errors()]);
             }
 
             $image_name = rand() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $image_name);
         } else {
             $rules = array(
-                'isbn'         =>  'required|numeric|unique:buku,isbn,' . $request->input('id'),
+                'isbn'         =>  'required|digits:13|unique:buku,isbn,' . $request->input('id'),
                 'judul'        =>  'required',
                 'penulis'      =>  'required',
                 'penerbit'     =>  'required',
@@ -143,7 +134,7 @@ class BukuController extends Controller
             $error = Validator::make($request->all(), $rules);
 
             if ($error->fails()) {
-                return response()->json(['errors' => $error->errors()->all()]);
+                return response()->json(['errors' => $error->errors()]);
             }
         }
 
